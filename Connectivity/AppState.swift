@@ -23,7 +23,7 @@ class AppState: NSObject, ObservableObject {
 
     func startMonitor() {
         debugPrint("Starting monitor")
-        monitor.start(queue: queue, pathUpdateHandler: didUpdate(path:))
+        monitor.start(pathUpdateQueue: queue, pathUpdateHandler: didUpdate(path:))
     }
 
     func stopMonitor() {
