@@ -6,9 +6,35 @@ public enum ConnectivityStatus: String {
     case requiresConnection
 }
 
+extension ConnectivityStatus: CustomStringConvertible {
+    public var description: String {
+        rawValue
+    }
+}
+
+public enum ConnectivityInterfaceType: String {
+    case other
+    case wifi
+    case cellular
+    case wiredEthernet
+    case loopback
+}
+
 public struct ConnectivityInterface {
     public let name: String
-    public let type: String
+    public let type: ConnectivityInterfaceType
+}
+
+extension ConnectivityInterface: CustomStringConvertible {
+    public var description: String {
+        "\(name) (\(type))"
+    }
+}
+
+extension Array where Element == ConnectivityInterface {
+    public var description: String {
+        self.map { "\($0.name) (\($0.type))" }.joined(separator: ", ")
+    }
 }
 
 public struct ConnectivityPath {
@@ -20,36 +46,51 @@ public struct ConnectivityPath {
     public let supportsIPv6: Bool
 }
 
+extension ConnectivityPath: CustomStringConvertible {
+    public var description: String {
+        [
+            "\(status): \(availableInterfaces.description)",
+            "Expensive = \(isExpensive ? "YES" : "NO")",
+            "DNS = \(supportsDNS ? "YES" : "NO")",
+            "IPv4 = \(supportsIPv4 ? "YES" : "NO")",
+            "IPv6 = \(supportsIPv6 ? "YES" : "NO")"
+        ].joined(separator: "; ")
+    }
+}
+
 public typealias PathUpdateHandler = (ConnectivityPath) -> Void
 
-public protocol NetworkMonitor {
+public protocol AnyConnectivityMonitor {
     func start(pathUpdateQueue: DispatchQueue, pathUpdateHandler: @escaping PathUpdateHandler)
     func cancel()
 }
 
 public class ConnectivityMonitor {
-    private var networkMonitor: NetworkMonitor?
+    private var monitor: AnyConnectivityMonitor?
     private let queue = DispatchQueue(label: "com.acme.connectivity", qos: .background)
 
     public init() {}
 
     public func start(pathUpdateQueue: DispatchQueue, pathUpdateHandler: @escaping PathUpdateHandler) {
-        guard #available(iOS 12.0, *) else {
-            debugPrint("OS version not supported: \(#function)")
-            return
-        }
-        let networkMonitor = DefaultNetworkMonitor()
-        networkMonitor.start(pathUpdateQueue: pathUpdateQueue, pathUpdateHandler: pathUpdateHandler)
-        self.networkMonitor = networkMonitor
+        let monitor = createMonitor()
+        monitor.start(pathUpdateQueue: pathUpdateQueue, pathUpdateHandler: pathUpdateHandler)
+        self.monitor = monitor
     }
 
     public func cancel() {
-        guard #available(iOS 12.0, *) else {
-            debugPrint("OS version not supported: \(#function)")
-            return
+        guard let monitor = monitor else { return }
+        monitor.cancel()
+        self.monitor = nil
+    }
+
+    private func createMonitor() -> AnyConnectivityMonitor {
+        let result: AnyConnectivityMonitor
+        if #available(iOS 12.0, *) {
+            result = NetworkMonitor()
+        } else {
+            result = ReachabilityMonitor()
         }
-        guard let networkMonitor = networkMonitor else { return }
-        networkMonitor.cancel()
+        return result
     }
 
 }

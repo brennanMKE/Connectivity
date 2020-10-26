@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="16097" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16087"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--View Controller-->
+        <scene sceneID="tne-QT-ifu">
+            <objects>
+                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="Classic" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="🥳" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="KNV-d4-8Yd">
+                                <rect key="frame" x="153" y="388.5" width="108" height="119.5"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="100"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="satisfied" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lVq-V6-50v">
+                                <rect key="frame" x="174.5" y="812" width="65" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="eno (wifi)" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ERm-UN-iQD">
+                                <rect key="frame" x="171.5" y="841" width="71.5" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="online" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="EJh-vm-WU9">
+                                <rect key="frame" x="184" y="516" width="46" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <constraints>
+                            <constraint firstItem="lVq-V6-50v" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="007-RA-vGT"/>
+                            <constraint firstItem="KNV-d4-8Yd" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="2Nx-fN-FJX"/>
+                            <constraint firstItem="ERm-UN-iQD" firstAttribute="bottom" secondItem="6Tk-OE-BBY" secondAttribute="bottom" id="44y-Lg-IzR"/>
+                            <constraint firstItem="EJh-vm-WU9" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="G3X-d6-MCi"/>
+                            <constraint firstItem="EJh-vm-WU9" firstAttribute="top" secondItem="KNV-d4-8Yd" secondAttribute="bottom" constant="8" id="NW7-iN-UnM"/>
+                            <constraint firstItem="ERm-UN-iQD" firstAttribute="top" secondItem="lVq-V6-50v" secondAttribute="bottom" constant="8" id="S3Y-U9-Kkc"/>
+                            <constraint firstItem="KNV-d4-8Yd" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="Tpn-sK-GTb"/>
+                            <constraint firstItem="ERm-UN-iQD" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="eZP-rj-OXN"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
+                    </view>
+                    <connections>
+                        <outlet property="emojiLabel" destination="KNV-d4-8Yd" id="Wqd-hv-N8u"/>
+                        <outlet property="interfacesLabel" destination="ERm-UN-iQD" id="B3g-qH-Bom"/>
+                        <outlet property="pathLabel" destination="lVq-V6-50v" id="u8e-jo-Jut"/>
+                        <outlet property="statusLabel" destination="EJh-vm-WU9" id="nlT-kG-nVu"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="139" y="92"/>
+        </scene>
+    </scenes>
+</document>

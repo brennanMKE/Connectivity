@@ -11,7 +11,18 @@
 		03D4177225434BCB001A10AF /* ConnectivityKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 03D4176B25434BCA001A10AF /* ConnectivityKit.framework */; };
 		03D4177325434BCB001A10AF /* ConnectivityKit.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 03D4176B25434BCA001A10AF /* ConnectivityKit.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		03D4177925434C1A001A10AF /* ConnectivityMonitor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03D4177825434C1A001A10AF /* ConnectivityMonitor.swift */; };
-		03D4177C25439354001A10AF /* NetworkSupport.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03D4177B25439354001A10AF /* NetworkSupport.swift */; };
+		03D4183A25474655001A10AF /* NetworkMonitor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03D4183925474655001A10AF /* NetworkMonitor.swift */; };
+		03D4183C25474666001A10AF /* ReachabilityMonitor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03D4183B25474666001A10AF /* ReachabilityMonitor.swift */; };
+		03D4183F2547469E001A10AF /* Reachability.h in Headers */ = {isa = PBXBuildFile; fileRef = 03D4183D2547469E001A10AF /* Reachability.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		03D418402547469E001A10AF /* Reachability.m in Sources */ = {isa = PBXBuildFile; fileRef = 03D4183E2547469E001A10AF /* Reachability.m */; };
+		03D4184825474B10001A10AF /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03D4184725474B10001A10AF /* AppDelegate.swift */; };
+		03D4184C25474B10001A10AF /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03D4184B25474B10001A10AF /* ViewController.swift */; };
+		03D4184F25474B10001A10AF /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 03D4184D25474B10001A10AF /* Main.storyboard */; };
+		03D4185125474B13001A10AF /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 03D4185025474B13001A10AF /* Assets.xcassets */; };
+		03D4185425474B13001A10AF /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 03D4185225474B13001A10AF /* LaunchScreen.storyboard */; };
+		03D4185A25474B67001A10AF /* AppState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03D4185925474B67001A10AF /* AppState.swift */; };
+		03D4185F25474C9E001A10AF /* ConnectivityKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 03D4176B25434BCA001A10AF /* ConnectivityKit.framework */; };
+		03D4186025474C9E001A10AF /* ConnectivityKit.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 03D4176B25434BCA001A10AF /* ConnectivityKit.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		03E1AAD12542A04F0085C9CD /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03E1AAD02542A04F0085C9CD /* AppDelegate.swift */; };
 		03E1AAD32542A04F0085C9CD /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03E1AAD22542A04F0085C9CD /* SceneDelegate.swift */; };
 		03E1AAD52542A04F0085C9CD /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03E1AAD42542A04F0085C9CD /* ContentView.swift */; };
@@ -23,6 +34,13 @@
 
 /* Begin PBXContainerItemProxy section */
 		03D4177025434BCB001A10AF /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 03E1AAC52542A04F0085C9CD /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 03D4176A25434BCA001A10AF;
+			remoteInfo = ConnectivityKit;
+		};
+		03D4185B25474C8E001A10AF /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 03E1AAC52542A04F0085C9CD /* Project object */;
 			proxyType = 1;
@@ -43,6 +61,17 @@
 			name = "Embed Frameworks";
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		03D4186125474C9E001A10AF /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				03D4186025474C9E001A10AF /* ConnectivityKit.framework in Embed Frameworks */,
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
@@ -51,7 +80,18 @@
 		03D4176E25434BCB001A10AF /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		03D4177825434C1A001A10AF /* ConnectivityMonitor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConnectivityMonitor.swift; sourceTree = "<group>"; };
 		03D4177A2543932D001A10AF /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; name = README.md; path = ../../../Brazil/Fuji/src/FujiConnectivity/README.md; sourceTree = "<group>"; };
-		03D4177B25439354001A10AF /* NetworkSupport.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkSupport.swift; sourceTree = "<group>"; };
+		03D4183925474655001A10AF /* NetworkMonitor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkMonitor.swift; sourceTree = "<group>"; };
+		03D4183B25474666001A10AF /* ReachabilityMonitor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReachabilityMonitor.swift; sourceTree = "<group>"; };
+		03D4183D2547469E001A10AF /* Reachability.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Reachability.h; sourceTree = "<group>"; };
+		03D4183E2547469E001A10AF /* Reachability.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Reachability.m; sourceTree = "<group>"; };
+		03D4184525474B10001A10AF /* Classic.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Classic.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		03D4184725474B10001A10AF /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		03D4184B25474B10001A10AF /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		03D4184E25474B10001A10AF /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		03D4185025474B13001A10AF /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		03D4185325474B13001A10AF /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		03D4185525474B13001A10AF /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		03D4185925474B67001A10AF /* AppState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppState.swift; sourceTree = "<group>"; };
 		03E1AACD2542A04F0085C9CD /* Connectivity.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Connectivity.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		03E1AAD02542A04F0085C9CD /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		03E1AAD22542A04F0085C9CD /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -68,6 +108,14 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		03D4184225474B10001A10AF /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				03D4185F25474C9E001A10AF /* ConnectivityKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -88,9 +136,33 @@
 				03D4176D25434BCB001A10AF /* ConnectivityKit.h */,
 				03D4176E25434BCB001A10AF /* Info.plist */,
 				03D4177825434C1A001A10AF /* ConnectivityMonitor.swift */,
-				03D4177B25439354001A10AF /* NetworkSupport.swift */,
+				03D4183925474655001A10AF /* NetworkMonitor.swift */,
+				03D4183B25474666001A10AF /* ReachabilityMonitor.swift */,
+				03D4183D2547469E001A10AF /* Reachability.h */,
+				03D4183E2547469E001A10AF /* Reachability.m */,
 			);
 			path = ConnectivityKit;
+			sourceTree = "<group>";
+		};
+		03D4184625474B10001A10AF /* ConnectivityClassic */ = {
+			isa = PBXGroup;
+			children = (
+				03D4184725474B10001A10AF /* AppDelegate.swift */,
+				03D4185925474B67001A10AF /* AppState.swift */,
+				03D4184B25474B10001A10AF /* ViewController.swift */,
+				03D4184D25474B10001A10AF /* Main.storyboard */,
+				03D4185025474B13001A10AF /* Assets.xcassets */,
+				03D4185225474B13001A10AF /* LaunchScreen.storyboard */,
+				03D4185525474B13001A10AF /* Info.plist */,
+			);
+			path = ConnectivityClassic;
+			sourceTree = "<group>";
+		};
+		03D4185D25474C94001A10AF /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
 		03E1AAC42542A04F0085C9CD = {
@@ -98,8 +170,10 @@
 			children = (
 				03D4177A2543932D001A10AF /* README.md */,
 				03E1AACF2542A04F0085C9CD /* Connectivity */,
+				03D4184625474B10001A10AF /* ConnectivityClassic */,
 				03D4176C25434BCB001A10AF /* ConnectivityKit */,
 				03E1AACE2542A04F0085C9CD /* Products */,
+				03D4185D25474C94001A10AF /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -108,6 +182,7 @@
 			children = (
 				03E1AACD2542A04F0085C9CD /* Connectivity.app */,
 				03D4176B25434BCA001A10AF /* ConnectivityKit.framework */,
+				03D4184525474B10001A10AF /* Classic.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -143,6 +218,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				03D4176F25434BCB001A10AF /* ConnectivityKit.h in Headers */,
+				03D4183F2547469E001A10AF /* Reachability.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -166,6 +242,25 @@
 			productName = ConnectivityKit;
 			productReference = 03D4176B25434BCA001A10AF /* ConnectivityKit.framework */;
 			productType = "com.apple.product-type.framework";
+		};
+		03D4184425474B10001A10AF /* ConnectivityClassic */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 03D4185625474B13001A10AF /* Build configuration list for PBXNativeTarget "ConnectivityClassic" */;
+			buildPhases = (
+				03D4184125474B10001A10AF /* Sources */,
+				03D4184225474B10001A10AF /* Frameworks */,
+				03D4184325474B10001A10AF /* Resources */,
+				03D4186125474C9E001A10AF /* Embed Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				03D4185C25474C8E001A10AF /* PBXTargetDependency */,
+			);
+			name = ConnectivityClassic;
+			productName = ConnectivityClassic;
+			productReference = 03D4184525474B10001A10AF /* Classic.app */;
+			productType = "com.apple.product-type.application";
 		};
 		03E1AACC2542A04F0085C9CD /* Connectivity */ = {
 			isa = PBXNativeTarget;
@@ -200,6 +295,9 @@
 						CreatedOnToolsVersion = 11.5;
 						LastSwiftMigration = 1150;
 					};
+					03D4184425474B10001A10AF = {
+						CreatedOnToolsVersion = 11.5;
+					};
 					03E1AACC2542A04F0085C9CD = {
 						CreatedOnToolsVersion = 11.5;
 					};
@@ -219,6 +317,7 @@
 			projectRoot = "";
 			targets = (
 				03E1AACC2542A04F0085C9CD /* Connectivity */,
+				03D4184425474B10001A10AF /* ConnectivityClassic */,
 				03D4176A25434BCA001A10AF /* ConnectivityKit */,
 			);
 		};
@@ -229,6 +328,16 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		03D4184325474B10001A10AF /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				03D4185425474B13001A10AF /* LaunchScreen.storyboard in Resources */,
+				03D4185125474B13001A10AF /* Assets.xcassets in Resources */,
+				03D4184F25474B10001A10AF /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -249,8 +358,20 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				03D4177C25439354001A10AF /* NetworkSupport.swift in Sources */,
+				03D4183C25474666001A10AF /* ReachabilityMonitor.swift in Sources */,
+				03D4183A25474655001A10AF /* NetworkMonitor.swift in Sources */,
+				03D418402547469E001A10AF /* Reachability.m in Sources */,
 				03D4177925434C1A001A10AF /* ConnectivityMonitor.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		03D4184125474B10001A10AF /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				03D4185A25474B67001A10AF /* AppState.swift in Sources */,
+				03D4184C25474B10001A10AF /* ViewController.swift in Sources */,
+				03D4184825474B10001A10AF /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -273,9 +394,30 @@
 			target = 03D4176A25434BCA001A10AF /* ConnectivityKit */;
 			targetProxy = 03D4177025434BCB001A10AF /* PBXContainerItemProxy */;
 		};
+		03D4185C25474C8E001A10AF /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 03D4176A25434BCA001A10AF /* ConnectivityKit */;
+			targetProxy = 03D4185B25474C8E001A10AF /* PBXContainerItemProxy */;
+		};
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
+		03D4184D25474B10001A10AF /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				03D4184E25474B10001A10AF /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		03D4185225474B13001A10AF /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				03D4185325474B13001A10AF /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
 		03E1AADB2542A0510085C9CD /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
@@ -351,6 +493,52 @@
 				TARGETED_DEVICE_FAMILY = "1,2";
 				VERSIONING_SYSTEM = "apple-generic";
 				VERSION_INFO_PREFIX = "";
+			};
+			name = Release;
+		};
+		03D4185725474B13001A10AF /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 94KV3E626L;
+				INFOPLIST_FILE = ConnectivityClassic/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				OTHER_LDFLAGS = (
+					"-weak_framework",
+					Network,
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.acme.ConnectivityClassic;
+				PRODUCT_NAME = Classic;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		03D4185825474B13001A10AF /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 94KV3E626L;
+				INFOPLIST_FILE = ConnectivityClassic/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				OTHER_LDFLAGS = (
+					"-weak_framework",
+					Network,
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.acme.ConnectivityClassic;
+				PRODUCT_NAME = Classic;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Release;
 		};
@@ -518,6 +706,15 @@
 			buildConfigurations = (
 				03D4177525434BCB001A10AF /* Debug */,
 				03D4177625434BCB001A10AF /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		03D4185625474B13001A10AF /* Build configuration list for PBXNativeTarget "ConnectivityClassic" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				03D4185725474B13001A10AF /* Debug */,
+				03D4185825474B13001A10AF /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

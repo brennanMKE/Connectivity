@@ -18,10 +18,30 @@ extension ConnectivityStatus {
 }
 
 @available(iOS 12.0, *)
+extension ConnectivityInterfaceType {
+    init(interfaceType: NWInterface.InterfaceType) {
+        switch interfaceType {
+            case .other:
+                self = .other
+            case .wifi:
+                self = .wifi
+            case .cellular:
+                self = .cellular
+            case .wiredEthernet:
+                self = .wiredEthernet
+            case .loopback:
+                self = .loopback
+        @unknown default:
+            self = .other
+        }
+    }
+}
+
+@available(iOS 12.0, *)
 extension ConnectivityInterface {
     init(interface: NWInterface) {
         name = interface.name
-        type = String(describing: interface.type)
+        type = ConnectivityInterfaceType(interfaceType: interface.type)
     }
 }
 
@@ -38,7 +58,7 @@ extension ConnectivityPath {
 }
 
 @available(iOS 12.0, *)
-class DefaultNetworkMonitor: NetworkMonitor {
+class NetworkMonitor: AnyConnectivityMonitor {
     private var monitor: NWPathMonitor?
     private var pathUpdateQueue: DispatchQueue?
     private var pathUpdateHandler: PathUpdateHandler?
@@ -47,9 +67,9 @@ class DefaultNetworkMonitor: NetworkMonitor {
 
     @available(iOS 12.0, *)
     func start(pathUpdateQueue: DispatchQueue, pathUpdateHandler: @escaping PathUpdateHandler) {
-        // A new instance is required each time a monitor is started
         self.pathUpdateQueue = pathUpdateQueue
         self.pathUpdateHandler = pathUpdateHandler
+        // A new instance is required each time a monitor is started
         let monitor = NWPathMonitor()
         monitor.pathUpdateHandler = didUpdate(path:)
         monitor.start(queue: queue)
