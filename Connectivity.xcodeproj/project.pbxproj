@@ -12,7 +12,7 @@
 		038A6B3326866732008ECC80 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 038A6B3226866732008ECC80 /* Assets.xcassets */; };
 		038A6B3626866732008ECC80 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 038A6B3526866732008ECC80 /* Preview Assets.xcassets */; };
 		038A6B3E268667DB008ECC80 /* AppEnvironment.swift in Sources */ = {isa = PBXBuildFile; fileRef = 038A6B3D268667DB008ECC80 /* AppEnvironment.swift */; };
-		038A6B412686680B008ECC80 /* ConnectivityKit in Frameworks */ = {isa = PBXBuildFile; productRef = 038A6B402686680B008ECC80 /* ConnectivityKit */; };
+		26BBC3C02751AAFB003F98FB /* ConnectivityKit in Frameworks */ = {isa = PBXBuildFile; productRef = 26BBC3BF2751AAFB003F98FB /* ConnectivityKit */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -23,6 +23,9 @@
 		038A6B3526866732008ECC80 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		038A6B3726866732008ECC80 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		038A6B3D268667DB008ECC80 /* AppEnvironment.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppEnvironment.swift; sourceTree = "<group>"; };
+		26BBC3B02751A64E003F98FB /* Build.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = Build.xcconfig; sourceTree = "<group>"; };
+		26BBC3B92751A7D7003F98FB /* CodeSigning.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = CodeSigning.xcconfig; sourceTree = "<group>"; };
+		26BBC3BC2751AAE9003F98FB /* Connectivity */ = {isa = PBXFileReference; lastKnownFileType = folder; name = Connectivity; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -30,7 +33,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				038A6B412686680B008ECC80 /* ConnectivityKit in Frameworks */,
+				26BBC3C02751AAFB003F98FB /* ConnectivityKit in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -40,6 +43,9 @@
 		038A6B222686672F008ECC80 = {
 			isa = PBXGroup;
 			children = (
+				26BBC3B32751A77E003F98FB /* Packages */,
+				26BBC3B02751A64E003F98FB /* Build.xcconfig */,
+				26BBC3B92751A7D7003F98FB /* CodeSigning.xcconfig */,
 				038A6B2D2686672F008ECC80 /* Connectivity */,
 				038A6B2C2686672F008ECC80 /* Products */,
 				038A6B3F2686680B008ECC80 /* Frameworks */,
@@ -82,6 +88,14 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		26BBC3B32751A77E003F98FB /* Packages */ = {
+			isa = PBXGroup;
+			children = (
+				26BBC3BC2751AAE9003F98FB /* Connectivity */,
+			);
+			name = Packages;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -96,10 +110,11 @@
 			buildRules = (
 			);
 			dependencies = (
+				26BBC3BE2751AAF7003F98FB /* PBXTargetDependency */,
 			);
 			name = Connectivity;
 			packageProductDependencies = (
-				038A6B402686680B008ECC80 /* ConnectivityKit */,
+				26BBC3BF2751AAFB003F98FB /* ConnectivityKit */,
 			);
 			productName = Connectivity;
 			productReference = 038A6B2B2686672F008ECC80 /* Connectivity.app */;
@@ -162,9 +177,17 @@
 		};
 /* End PBXSourcesBuildPhase section */
 
+/* Begin PBXTargetDependency section */
+		26BBC3BE2751AAF7003F98FB /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			productRef = 26BBC3BD2751AAF7003F98FB /* ConnectivityKit */;
+		};
+/* End PBXTargetDependency section */
+
 /* Begin XCBuildConfiguration section */
 		038A6B3826866732008ECC80 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 26BBC3B02751A64E003F98FB /* Build.xcconfig */;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				CLANG_ANALYZER_NONNULL = YES;
@@ -214,7 +237,6 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 14.5;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
@@ -226,6 +248,7 @@
 		};
 		038A6B3926866732008ECC80 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 26BBC3B02751A64E003F98FB /* Build.xcconfig */;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				CLANG_ANALYZER_NONNULL = YES;
@@ -269,7 +292,6 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 14.5;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				SDKROOT = iphoneos;
@@ -282,20 +304,20 @@
 		038A6B3B26866732008ECC80 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALLOW_TARGET_PLATFORM_SPECIALIZATION = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_ASSET_PATHS = "\"Connectivity/Preview Content\"";
-				DEVELOPMENT_TEAM = Z8FSDNUWQ7;
 				ENABLE_PREVIEWS = YES;
 				INFOPLIST_FILE = Connectivity/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.acme.Connectivity;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SUPPORTS_MACCATALYST = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -304,20 +326,20 @@
 		038A6B3C26866732008ECC80 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALLOW_TARGET_PLATFORM_SPECIALIZATION = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_ASSET_PATHS = "\"Connectivity/Preview Content\"";
-				DEVELOPMENT_TEAM = Z8FSDNUWQ7;
 				ENABLE_PREVIEWS = YES;
 				INFOPLIST_FILE = Connectivity/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.acme.Connectivity;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SUPPORTS_MACCATALYST = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -347,7 +369,11 @@
 /* End XCConfigurationList section */
 
 /* Begin XCSwiftPackageProductDependency section */
-		038A6B402686680B008ECC80 /* ConnectivityKit */ = {
+		26BBC3BD2751AAF7003F98FB /* ConnectivityKit */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = ConnectivityKit;
+		};
+		26BBC3BF2751AAFB003F98FB /* ConnectivityKit */ = {
 			isa = XCSwiftPackageProductDependency;
 			productName = ConnectivityKit;
 		};

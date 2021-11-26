@@ -1,6 +1,8 @@
+#include "CodeSigning.xcconfig"
+
 SUPPORTED_PLATFORMS = watchsimulator watchos macosx iphonesimulator iphoneos appletvsimulator appletvos
 
-IPHONEOS_DEPLOYMENT_TARGET = 10.0
+IPHONEOS_DEPLOYMENT_TARGET = 14.0
 MACOSX_DEPLOYMENT_TARGET = 11.4
-TVOS_DEPLOYMENT_TARGET = 13.0
+TVOS_DEPLOYMENT_TARGET = 14.0
 WATCHOS_DEPLOYMENT_TARGET = 7.0

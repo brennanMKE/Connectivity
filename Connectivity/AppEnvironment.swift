@@ -1,10 +1,3 @@
-//
-//  AppEnvironment.swift
-//  Connectivity
-//
-//  Created by Stehling, Brennan on 6/25/21.
-//
-
 import Foundation
 import AudioToolbox
 import Reachability
