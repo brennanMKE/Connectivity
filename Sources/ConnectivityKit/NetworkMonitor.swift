@@ -1,7 +1,7 @@
 import Foundation
 import Network
 
-@available(iOS 12.0, *)
+@available(iOS 12.0, macOS 10.14, tvOS 12.0, watchOS 6.0, *)
 extension ConnectivityStatus {
     init(status: NWPath.Status) {
         switch status {
@@ -17,7 +17,7 @@ extension ConnectivityStatus {
     }
 }
 
-@available(iOS 12.0, *)
+@available(iOS 12.0, macOS 10.14, tvOS 12.0, watchOS 6.0, *)
 extension ConnectivityInterfaceType {
     init(interfaceType: NWInterface.InterfaceType) {
         switch interfaceType {
@@ -37,7 +37,7 @@ extension ConnectivityInterfaceType {
     }
 }
 
-@available(iOS 12.0, *)
+@available(iOS 12.0, macOS 10.14, tvOS 12.0, watchOS 6.0, *)
 extension ConnectivityInterface {
     init(interface: NWInterface) {
         name = interface.name
@@ -45,7 +45,7 @@ extension ConnectivityInterface {
     }
 }
 
-@available(iOS 12.0, *)
+@available(iOS 12.0, macOS 10.14, tvOS 12.0, watchOS 6.0, *)
 extension ConnectivityPath {
     init(path: NWPath) {
         status = ConnectivityStatus(status: path.status)
@@ -57,7 +57,7 @@ extension ConnectivityPath {
     }
 }
 
-@available(iOS 12.0, *)
+@available(iOS 12.0, macOS 10.14, tvOS 12.0, watchOS 6.0, *)
 class NetworkMonitor: AnyConnectivityMonitor {
     private var monitor: NWPathMonitor?
     private var pathUpdateQueue: DispatchQueue?
@@ -65,7 +65,7 @@ class NetworkMonitor: AnyConnectivityMonitor {
 
     private let queue = DispatchQueue(label: "com.acme.connectivity.network-monitor", qos: .background)
 
-    @available(iOS 12.0, *)
+    @available(iOS 12.0, macOS 10.14, tvOS 12.0, watchOS 6.0, *)
     func start(pathUpdateQueue: DispatchQueue, pathUpdateHandler: @escaping PathUpdateHandler) {
         self.pathUpdateQueue = pathUpdateQueue
         self.pathUpdateHandler = pathUpdateHandler
@@ -76,13 +76,13 @@ class NetworkMonitor: AnyConnectivityMonitor {
         self.monitor = monitor
     }
 
-    @available(iOS 12.0, *)
+    @available(iOS 12.0, macOS 10.14, tvOS 12.0, watchOS 6.0, *)
     func cancel() {
         guard let monitor = monitor else { return }
         monitor.cancel()
     }
 
-    @available(iOS 12.0, *)
+    @available(iOS 12.0, macOS 10.14, tvOS 12.0, watchOS 6.0, *)
     func didUpdate(path: NWPath) {
         guard let pathUpdateHandler = pathUpdateHandler,
             let pathUpdateQueue = pathUpdateQueue else { return }

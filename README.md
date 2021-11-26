@@ -41,7 +41,7 @@ public protocol AnyConnectivityMonitor {
 
 private func createMonitor() -> AnyConnectivityMonitor {
     let result: AnyConnectivityMonitor
-    if #available(iOS 12.0, *) {
+    if #available(iOS 12.0, macOS 10.14, *) {
         result = NetworkMonitor()
     } else {
         result = ReachabilityMonitor()

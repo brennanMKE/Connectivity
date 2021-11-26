@@ -2,6 +2,7 @@ import Foundation
 import Reachability
 
 extension ConnectivityStatus {
+    
     init(networkStatus: NetworkStatus) {
         switch networkStatus {
         case .notReachable:
@@ -15,6 +16,7 @@ extension ConnectivityStatus {
 }
 
 extension ConnectivityPath {
+
     init(networkStatus: NetworkStatus, connectionRequired: Bool) {
         status = ConnectivityStatus(networkStatus: networkStatus)
         availableInterfaces = []

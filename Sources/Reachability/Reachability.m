@@ -47,6 +47,12 @@
 
  */
 
+#import "TargetConditionals.h"
+
+#import "Reachability.h"
+
+#if TARGET_OS_IOS || TARGET_OS_TV || TARGET_OS_OSX
+
 #import <sys/socket.h>
 #import <netinet/in.h>
 #import <netinet6/in6.h>
@@ -57,12 +63,14 @@
 #import <SystemConfiguration/SystemConfiguration.h>
 #import <CoreFoundation/CoreFoundation.h>
 
-#import "Reachability.h"
-
 static void printReachabilityFlags(SCNetworkReachabilityFlags flags, const char *comment) {
-#if kShouldPrintReachabilityFlags
+    #if kShouldPrintReachabilityFlags
     NSLog(@"Reachability Flag Status: %c%c %c%c%c%c%c%c%c %s\n",
+        #if TARGET_OS_IPHONE
           (flags & kSCNetworkReachabilityFlagsIsWWAN)                ? 'W' : '-',
+        #else
+          '-',
+        #endif
           (flags & kSCNetworkReachabilityFlagsReachable)            ? 'R' : '-',
           (flags & kSCNetworkReachabilityFlagsTransientConnection)  ? 't' : '-',
           (flags & kSCNetworkReachabilityFlagsConnectionRequired)   ? 'c' : '-',
@@ -73,7 +81,7 @@ static void printReachabilityFlags(SCNetworkReachabilityFlags flags, const char 
           (flags & kSCNetworkReachabilityFlagsIsDirect)             ? 'd' : '-',
           comment
           );
-#endif
+    #endif
 }
 
 static void reachabilityCallback(SCNetworkReachabilityRef target, SCNetworkReachabilityFlags flags, void *info) {
@@ -184,11 +192,13 @@ static void reachabilityCallback(SCNetworkReachabilityRef target, SCNetworkReach
         }
     }
 
+    #if TARGET_OS_IPHONE
     if ((flags & kSCNetworkReachabilityFlagsIsWWAN) == kSCNetworkReachabilityFlagsIsWWAN) {
         // ... but WWAN connections are OK if the calling application
         //     is using the CFNetwork (CFSocketStream?) APIs.
         retVal = NetworkStatusReachableViaWWAN;
     }
+    #endif
 
     return retVal;
 }
@@ -219,3 +229,21 @@ static void reachabilityCallback(SCNetworkReachabilityRef target, SCNetworkReach
 }
 
 @end
+
+#else
+
+@implementation Reachability
+
++ (Reachability*)reachabilityWithHostname:(NSString *)hostname {
+    return NULL;
+}
+
+- (BOOL)start {
+    return  NO;
+}
+
+- (void)cancel {}
+
+@end
+
+#endif
