@@ -2,17 +2,32 @@ import Foundation
 import AudioToolbox
 import Reachability
 import ConnectivityKit
+import Combine
+
+enum ConnectivityBehavior {
+    case closure
+    case combine
+}
 
 class AppEnvironment: ObservableObject {
     static let OnlineEmojis = ["🤩", "🥳", "😎"]
     static let OfflineEmojis = ["😭", "😤", "🤬"]
 
     @Published var networkEmoji: String = ""
-    @Published var networkStatus: String = ""
     @Published var pathStatus: String = ""
     @Published var interfaces: String = ""
+    @Published var networkStatus: String = "" {
+        didSet {
+            if oldValue != "" && oldValue != networkStatus {
+                vibrate()
+            }
+        }
+    }
 
-    private var monitor = ConnectivityMonitor()
+    let behavior: ConnectivityBehavior = .combine
+    private var monitor: ConnectivityMonitor?
+    private var observer: ConnectivityObserver?
+    private var cancellable: AnyCancellable?
 
     var onlineEmoji: String {
         Self.OnlineEmojis.randomElement() ?? ""
@@ -23,25 +38,41 @@ class AppEnvironment: ObservableObject {
     }
 
     func startMonitor() {
-        debugPrint("Starting monitor")
-        monitor.start(pathUpdateQueue: .main, pathUpdateHandler: didUpdate(path:))
+        switch behavior {
+        case .closure:
+            let monitor = ConnectivityMonitor()
+            monitor.start(pathUpdateQueue: .main, pathUpdateHandler: handlePathUpdate(path:))
+            self.monitor = monitor
+        case .combine:
+            let observer = ConnectivityObserver()
+            let publisher = observer.start(pathUpdateQueue: .main)
+            let cancellable = publisher.sink(receiveCompletion: { _ in
+                print("Observer completed")
+            }, receiveValue: handlePathUpdate(path:))
+            self.observer = observer
+            self.cancellable = cancellable
+        }
     }
 
     func stopMonitor() {
-        debugPrint("Stopping monitor")
-        monitor.cancel()
+        switch behavior {
+        case .closure:
+            monitor?.cancel()
+            monitor = nil
+        case .combine:
+            observer?.cancel()
+            cancellable?.cancel()
+            observer = nil
+            cancellable = nil
+        }
     }
 
-    func didUpdate(path: ConnectivityPath) {
+    func handlePathUpdate(path: ConnectivityPath) {
         dispatchPrecondition(condition: .onQueue(.main))
-
-        debugPrint("Path: \(path)")
 
         if path.isExpensive {
             debugPrint("Network path is considered expensive.")
         }
-
-        let previousNetworkStatus = networkStatus
 
         let offline = path.status == .unsatisfied
         networkEmoji = offline ? offlineEmoji : onlineEmoji
@@ -50,10 +81,6 @@ class AppEnvironment: ObservableObject {
         interfaces = path.availableInterfaces
             .map { "\($0.name) (\($0.type))" }
             .joined(separator: ", ")
-
-        if previousNetworkStatus != "" && networkStatus != previousNetworkStatus {
-            vibrate()
-        }
     }
 
     func vibrate() {

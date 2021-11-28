@@ -1,0 +1,16 @@
+{
+  "object": {
+    "pins": [
+      {
+        "package": "ConnectivityKit",
+        "repositoryURL": "https://github.com/brennanMKE/ConnectivityKit",
+        "state": {
+          "branch": null,
+          "revision": "a0045809597915caeceb6b7f92a0df67e1143986",
+          "version": "1.1.0"
+        }
+      }
+    ]
+  },
+  "version": 1
+}

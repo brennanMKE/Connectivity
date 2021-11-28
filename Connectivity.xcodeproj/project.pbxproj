@@ -12,7 +12,7 @@
 		038A6B3326866732008ECC80 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 038A6B3226866732008ECC80 /* Assets.xcassets */; };
 		038A6B3626866732008ECC80 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 038A6B3526866732008ECC80 /* Preview Assets.xcassets */; };
 		038A6B3E268667DB008ECC80 /* AppEnvironment.swift in Sources */ = {isa = PBXBuildFile; fileRef = 038A6B3D268667DB008ECC80 /* AppEnvironment.swift */; };
-		26BBC3C02751AAFB003F98FB /* ConnectivityKit in Frameworks */ = {isa = PBXBuildFile; productRef = 26BBC3BF2751AAFB003F98FB /* ConnectivityKit */; };
+		26F643A42751D2B400E7667C /* ConnectivityKit in Frameworks */ = {isa = PBXBuildFile; productRef = 26F643A32751D2B400E7667C /* ConnectivityKit */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -25,7 +25,6 @@
 		038A6B3D268667DB008ECC80 /* AppEnvironment.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppEnvironment.swift; sourceTree = "<group>"; };
 		26BBC3B02751A64E003F98FB /* Build.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = Build.xcconfig; sourceTree = "<group>"; };
 		26BBC3B92751A7D7003F98FB /* CodeSigning.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = CodeSigning.xcconfig; sourceTree = "<group>"; };
-		26BBC3BC2751AAE9003F98FB /* Connectivity */ = {isa = PBXFileReference; lastKnownFileType = folder; name = Connectivity; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -33,7 +32,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				26BBC3C02751AAFB003F98FB /* ConnectivityKit in Frameworks */,
+				26F643A42751D2B400E7667C /* ConnectivityKit in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -43,7 +42,6 @@
 		038A6B222686672F008ECC80 = {
 			isa = PBXGroup;
 			children = (
-				26BBC3B32751A77E003F98FB /* Packages */,
 				26BBC3B02751A64E003F98FB /* Build.xcconfig */,
 				26BBC3B92751A7D7003F98FB /* CodeSigning.xcconfig */,
 				038A6B2D2686672F008ECC80 /* Connectivity */,
@@ -88,14 +86,6 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
-		26BBC3B32751A77E003F98FB /* Packages */ = {
-			isa = PBXGroup;
-			children = (
-				26BBC3BC2751AAE9003F98FB /* Connectivity */,
-			);
-			name = Packages;
-			sourceTree = "<group>";
-		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -110,11 +100,11 @@
 			buildRules = (
 			);
 			dependencies = (
-				26BBC3BE2751AAF7003F98FB /* PBXTargetDependency */,
+				26F643A22751D2AA00E7667C /* PBXTargetDependency */,
 			);
 			name = Connectivity;
 			packageProductDependencies = (
-				26BBC3BF2751AAFB003F98FB /* ConnectivityKit */,
+				26F643A32751D2B400E7667C /* ConnectivityKit */,
 			);
 			productName = Connectivity;
 			productReference = 038A6B2B2686672F008ECC80 /* Connectivity.app */;
@@ -143,6 +133,9 @@
 				Base,
 			);
 			mainGroup = 038A6B222686672F008ECC80;
+			packageReferences = (
+				26F6439E2751D29D00E7667C /* XCRemoteSwiftPackageReference "ConnectivityKit" */,
+			);
 			productRefGroup = 038A6B2C2686672F008ECC80 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -178,9 +171,9 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
-		26BBC3BE2751AAF7003F98FB /* PBXTargetDependency */ = {
+		26F643A22751D2AA00E7667C /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			productRef = 26BBC3BD2751AAF7003F98FB /* ConnectivityKit */;
+			productRef = 26F643A12751D2AA00E7667C /* ConnectivityKit */;
 		};
 /* End PBXTargetDependency section */
 
@@ -304,7 +297,6 @@
 		038A6B3B26866732008ECC80 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ALLOW_TARGET_PLATFORM_SPECIALIZATION = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
@@ -326,7 +318,6 @@
 		038A6B3C26866732008ECC80 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ALLOW_TARGET_PLATFORM_SPECIALIZATION = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
@@ -368,13 +359,26 @@
 		};
 /* End XCConfigurationList section */
 
+/* Begin XCRemoteSwiftPackageReference section */
+		26F6439E2751D29D00E7667C /* XCRemoteSwiftPackageReference "ConnectivityKit" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/brennanMKE/ConnectivityKit";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 1.0.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
 /* Begin XCSwiftPackageProductDependency section */
-		26BBC3BD2751AAF7003F98FB /* ConnectivityKit */ = {
+		26F643A12751D2AA00E7667C /* ConnectivityKit */ = {
 			isa = XCSwiftPackageProductDependency;
+			package = 26F6439E2751D29D00E7667C /* XCRemoteSwiftPackageReference "ConnectivityKit" */;
 			productName = ConnectivityKit;
 		};
-		26BBC3BF2751AAFB003F98FB /* ConnectivityKit */ = {
+		26F643A32751D2B400E7667C /* ConnectivityKit */ = {
 			isa = XCSwiftPackageProductDependency;
+			package = 26F6439E2751D29D00E7667C /* XCRemoteSwiftPackageReference "ConnectivityKit" */;
 			productName = ConnectivityKit;
 		};
 /* End XCSwiftPackageProductDependency section */
